@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slosh"
+version = "0.0.1"
+description = "A wrapper around ssh that can save connections to your ssh config file."
+authors = [{name = "Emile Indik"}]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ['ssh', 'config', 'file']
+
+[project.urls]
+Homepage = "https://github.com/emileindik/slosh"
+Issues = "https://github.com/emileindik/slosh/issues"
+
+[project.scripts]
+slosh = "slosh.main:main"
