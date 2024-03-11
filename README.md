@@ -1,7 +1,8 @@
 # Slosh
 
-For more information on using and configuring SSH through the SSH config file, check out this helpful guide: [Using the SSH Config File](https://linuxize.com/post/using-the-ssh-config-file/).
+Slosh automatically saves your SSH connection, as you make it, to your SSH config file (`~/.ssh/config`). It also allows you to update connections with new details (like changing the username or adding compression) without having to manually edit the config file.
 
+Check out this guide for a primer on the handy SSH config file: [Using the SSH Config File](https://linuxize.com/post/using-the-ssh-config-file/).
 
 ## Installation
 
@@ -23,18 +24,18 @@ To save a connection to the SSH config file add `--save-as <host alias>` to your
 ```bash
 $ slosh -i ~/.ssh/mykey.pem --save-as myserver ubuntu@1.1.1.1 
 ```
-In the above example we used `--save-as myserver` to save the connection information to the SSH config file under the alias `myserver`. This means that we can now run `slosh myserver` or `ssh myserver` to connect to the server.
+Above we used `--save-as myserver` to save the connection information to the SSH config file under the alias `myserver`. This means that we can now run `slosh myserver` or `ssh myserver` to connect to the server.
 
 #### Update connection
 
-Simply use the --save-as option with the host alias of the connection you wish to update. Here we add compression (`-C`) and change the login username (`newuser`) of our original connection.
+Simply use the `--save-as` option with the host alias of the connection you wish to update. Here we add compression (`-C`) and change the login username (`newuser`) of our original connection.
 
 ```bash
 $ slosh -i ~/.ssh/mykey.pem -C --save-as myserver ubuntu@1.1.1.1 
 ```
 
 ### Supported options
-The below `ssh` options are saved to the config. Let me know if you'd like more options to be added.
+The below `ssh` options are captured by `slosh` and saved to the config. Let me know if you'd like more options to be added.
 
 - `-l <user>`: Specifies the username for the connection.
 - `-p <port>`: Specifies the port number for the connection.
@@ -43,4 +44,4 @@ The below `ssh` options are saved to the config. Let me know if you'd like more 
 - `-C`: Requests compression of all data.
 - `-v`: Increases verbosity. Can be used up to three times (`-vvv`).
 
-For a comprehensive list of all `ssh` options and their explanations, you can refer to the official SSH manual page: [SSH Manual Page](https://man7.org/linux/man-pages/man1/ssh.1.html).
+For a comprehensive list of all `ssh` options and their explanations, refer to the official SSH manual page: [SSH Manual Page](https://man7.org/linux/man-pages/man1/ssh.1.html).
